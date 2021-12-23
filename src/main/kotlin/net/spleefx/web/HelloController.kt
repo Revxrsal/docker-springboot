@@ -25,13 +25,16 @@ package net.spleefx.web
 
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
+import redis.clients.jedis.Jedis
 
 @RestController
 class HelloController {
 
     @GetMapping("/hello")
     fun hello(): String {
+        REDIS["hello"] = "Hello!!"
         return "Hello, world!"
     }
 
 }
+

@@ -9,6 +9,7 @@ import org.springframework.boot.runApplication
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory
 import org.springframework.context.annotation.Bean
+import redis.clients.jedis.Jedis
 
 @SpringBootApplication
 class SpleefX {
@@ -40,6 +41,8 @@ class SpleefX {
         }
 
 }
+
+val REDIS = Jedis("localhost", 6379).also { it.connect() }
 
 fun main(args: Array<String>) {
     runApplication<SpleefX>(*args)

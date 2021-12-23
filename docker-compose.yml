@@ -1,0 +1,18 @@
+version: '2'
+services:
+  app:
+    build: .
+    ports:
+      - "443:443"
+    links:
+      - "db:redis"
+    volumes:
+      - /etc/letsencrypt/live/spleefx.net/:/etc/letsencrypt/live/spleefx.net/
+  db:
+    image: "redis:alpine"
+    hostname: redis
+    ports:
+      - "6379:6379"
+volumes:
+  cert:
+    driver: local
