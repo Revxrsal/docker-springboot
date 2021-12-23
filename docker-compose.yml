@@ -11,8 +11,8 @@ services:
   db:
     image: "redis:alpine"
     hostname: redis
-    ports:
-      - "6379:6379"
+#    ports:
+#      - "6379:6379"
 volumes:
   cert:
     driver: local
