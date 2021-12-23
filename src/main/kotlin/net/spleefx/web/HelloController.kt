@@ -32,7 +32,7 @@ class HelloController {
 
     @GetMapping("/hello")
     fun hello(): String {
-        REDIS["hello"] = "Hello!!"
+//        REDIS["hello"] = "Hello!!"
         return "Hello, world!"
     }
 
