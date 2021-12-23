@@ -16,6 +16,7 @@ repositories {
 }
 
 dependencies {
+    implementation("redis.clients:jedis:4.0.0")
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-security")
