@@ -12,6 +12,6 @@ services:
   db:
     image: "redis:alpine"
     hostname: redis
-volumes:
-  data:
-    driver: local
+#volumes:
+#  data:
+#    driver: local
