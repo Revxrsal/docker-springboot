@@ -33,6 +33,7 @@ class HelloController {
     fun hello(): String {
         val content = TEST.readText()
         TEST.writeText("Test")
+        println(TEST.absolutePath)
         return "Content: '$content'"
     }
 
