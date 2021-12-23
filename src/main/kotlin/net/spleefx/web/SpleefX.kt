@@ -42,7 +42,7 @@ class SpleefX {
 
 }
 
-val REDIS = Jedis("localhost", 6379).also { it.connect() }
+val REDIS = Jedis("db", 6379).also { it.connect() }
 
 fun main(args: Array<String>) {
     runApplication<SpleefX>(*args)
