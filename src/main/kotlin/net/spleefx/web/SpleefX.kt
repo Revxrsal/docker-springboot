@@ -43,7 +43,7 @@ class SpleefX {
 
 }
 
-val DIR = File("data").also { Files.createDirectories(it.toPath()) }
+val DIR = File("/spleefx-web/data").also { Files.createDirectories(it.toPath()) }
 val TEST = File(DIR, "test.txt").also { it.createNewFile() }
 fun main(args: Array<String>) {
     runApplication<SpleefX>(*args)
