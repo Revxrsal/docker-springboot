@@ -1,7 +1,7 @@
 version: '2'
 services:
   app:
-    build: .
+    image: ghcr.io/revxrsal/docker-springboot:master
     ports:
       - "443:443"
     links:
