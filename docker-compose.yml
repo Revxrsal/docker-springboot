@@ -8,7 +8,7 @@ services:
       - "db:redis"
     volumes:
       - /etc/letsencrypt/live/spleefx.net/:/etc/letsencrypt/live/spleefx.net/
-      - /var/lib/data:/spleefx-web/data
+      - data/data
   db:
     image: "redis:alpine"
     hostname: redis
