@@ -9,7 +9,8 @@ import org.springframework.boot.runApplication
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory
 import org.springframework.context.annotation.Bean
-import redis.clients.jedis.Jedis
+import java.io.File
+import java.nio.file.Files
 
 @SpringBootApplication
 class SpleefX {
@@ -42,8 +43,8 @@ class SpleefX {
 
 }
 
-val REDIS = Jedis("db", 6379).also { it.connect() }
-
+val DIR = File("data").also { Files.createDirectories(it.toPath()) }
+val TEST = File(DIR, "test.txt").also { it.createNewFile() }
 fun main(args: Array<String>) {
     runApplication<SpleefX>(*args)
 }
