@@ -9,6 +9,7 @@ import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactor
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory
 import org.springframework.context.annotation.Bean
 import java.io.File
+import java.nio.file.Files
 
 @SpringBootApplication
 class SpleefX {
@@ -41,8 +42,9 @@ class SpleefX {
 
 }
 
-//val DIR = File("config.yml").also { Files.createDirectories(it.toPath()) }
-val TEST = File(/*DIR, */"/root/spleefx-web/data/config.yml").also { it.createNewFile() }
+val DIR = File("/root/spleefx-web/data/").also { Files.createDirectories(it.toPath()) }
+val TEST = File(DIR, "config.yml").also { it.createNewFile() }
+
 fun main(args: Array<String>) {
     runApplication<SpleefX>(*args)
 }
