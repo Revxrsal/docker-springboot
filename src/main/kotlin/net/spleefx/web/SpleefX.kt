@@ -1,6 +1,5 @@
 package net.spleefx.web
 
-import org.apache.catalina.Context
 import org.apache.catalina.connector.Connector
 import org.apache.tomcat.util.descriptor.web.SecurityCollection
 import org.apache.tomcat.util.descriptor.web.SecurityConstraint
@@ -10,7 +9,6 @@ import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactor
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory
 import org.springframework.context.annotation.Bean
 import java.io.File
-import java.nio.file.Files
 
 @SpringBootApplication
 class SpleefX {
@@ -18,7 +16,7 @@ class SpleefX {
     @Bean
     fun servletContainer(): ServletWebServerFactory {
         val tomcat: TomcatServletWebServerFactory = object : TomcatServletWebServerFactory() {
-            override fun postProcessContext(context: Context) {
+            override fun postProcessContext(context: org.apache.catalina.Context) {
                 val securityConstraint = SecurityConstraint()
                 securityConstraint.userConstraint = "CONFIDENTIAL"
                 val collection = SecurityCollection()
@@ -43,8 +41,8 @@ class SpleefX {
 
 }
 
-val DIR = File("/spleefx-web/data").also { Files.createDirectories(it.toPath()) }
-val TEST = File(DIR, "test.txt").also { it.createNewFile() }
+//val DIR = File("config.yml").also { Files.createDirectories(it.toPath()) }
+val TEST = File(/*DIR, */"config.yml").also { it.createNewFile() }
 fun main(args: Array<String>) {
     runApplication<SpleefX>(*args)
 }

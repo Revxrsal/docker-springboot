@@ -1,16 +1,13 @@
-version: '2'
+version: '3.3'
 services:
   app:
-    image: ghcr.io/revxrsal/docker-springboot:master
+    image: spleefx-web
     ports:
       - "443:443"
-    links:
-      - "db:redis"
+    container_name: spleefx-web
     volumes:
       - /etc/letsencrypt/live/spleefx.net/:/etc/letsencrypt/live/spleefx.net/
-      - data:/root/spleefx-web/data
+      - ./data:/root/spleefx-web/data
   db:
     image: "redis:alpine"
-    hostname: redis
-volumes:
-  data: {}
+    container_name: redis
