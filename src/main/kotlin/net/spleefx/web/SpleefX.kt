@@ -42,7 +42,7 @@ class SpleefX {
 }
 
 //val DIR = File("config.yml").also { Files.createDirectories(it.toPath()) }
-val TEST = File(/*DIR, */"config.yml").also { it.createNewFile() }
+val TEST = File(/*DIR, */"/root/spleefx-web/data/config.yml").also { it.createNewFile() }
 fun main(args: Array<String>) {
     runApplication<SpleefX>(*args)
 }
